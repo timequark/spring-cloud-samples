@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demoserviceprovider.mapper.RMSUserMapper">
+    <resultMap id="BaseResultMap" type="com.example.demoserviceprovider.entity.RMSUser" >
+        <result column="Sysid" property="sysId" />
+        <result column="Usercode" property="userCode" />
+        <result column="UserName" property="userName" />
+        <result column="Password" property="password" />
+        <result column="Gender" property="gender" />
+        <result column="Email" property="email" />
+        <result column="Creater" property="creater" />
+        <result column="CustSysid" property="custSysId" />
+        <result column="AccountSysid" property="accountSysId" />
+        <result column="RoleSysid" property="roleSysId" />
+    </resultMap>
+    <select id="getRMSUserByUserCode" resultMap="BaseResultMap">
+        select * from RMSUser where usercode = #{userCode}
+    </select>
+    <select id="getAllRMSUser" resultMap="BaseResultMap">
+        select * from RMSUser
+    </select>
+</mapper>

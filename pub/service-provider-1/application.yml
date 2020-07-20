@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: demo-service-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://dcdbt-66htbyd4.sql.tencentcdb.com:24/edw?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: hongque
+    password: hongque@2017
+
+server:
+  port: 8010
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types:
+      - image/png
+      - image/jpeg
+      - image/jpg
+      - text/html
+      - application/javascript
+      - text/css
+      - application/octet-stream
+      - application/json
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/ #eureka服务注册地址
+
+#actuator端口
+management:
+  server:
+    port: 8011
+  endpoints:
+    health:
+      show-details: always
+    web:
+      #   base-path: / #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+      exposure:
+        include: '*'  #开放所有页面节点  默认只开启了health、info两个节点
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  config: classpath:log4j.xml
+
+app:
+  fallbackThreshold: 5

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: demo-admin-server
+  security:
+    # 登陆所需的账号密码
+    user:
+      name: admin
+      password: admin
+  boot:
+    admin:
+      ui:
+        title: Service Monitor
+
+server:
+  port: 8060
+
+eureka:
+  client:
+    registerWithEureka: false
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/ #eureka服务注册地址

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demoserviceprovider.mapper.HierActualMapper">
+
+    <select id="getHierActualRange" resultType="com.example.demoserviceprovider.entity.HierActual">
+        SELECT LOWER(hotelkey) AS hotelKey, hotelCode, marketSegmentKey, originKey, roomTypeKey, rateCodeKey,
+               bizDate, rmnights, revenue
+        FROM HierActual WHERE hotelkey = #{hotelKey}
+        <choose>
+            <when test="fromBiz==toBiz">
+                AND bizdate=#{fromBiz}
+            </when>
+            <otherwise>
+                AND bizdate BETWEEN #{fromBiz} AND #{toBiz}
+            </otherwise>
+        </choose>
+
+    </select>
+
+</mapper>

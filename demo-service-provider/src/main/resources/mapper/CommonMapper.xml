@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demoserviceprovider.mapper.CommonMapper">
+
+    <select id="getDimHotels" resultType="com.example.demoserviceprovider.entity.DimHotels">
+        select LOWER(hotelkey) AS hotelKey, hotelCode, hotelName, hotelEnglishName, hotelChineseName, geographyKey, telephone,
+               fax, address, company, pms, isValid, invalidDate, bizDate, bizMode, openDate
+        from DimHotels where hotelcode = #{hotelCode}
+    </select>
+
+    <select id="getETLMarketseg" resultType="com.example.demoserviceprovider.entity.ETLMarketseg">
+        select sysid, LOWER(hotelkey) AS hotelKey, code, descriptOfChinese, descriptOfEnglish, descript, macroSegKey,
+               isValid, isStatistic, invalidDate, mappingKey
+        from ETLMarketseg where hotelkey = #{hotelKey}
+    </select>
+
+    <select id="getETLOrigin" resultType="com.example.demoserviceprovider.entity.ETLOrigin">
+        select sysid, LOWER(hotelkey) AS hotelKey, code, descriptOfChinese, descriptOfEnglish, descript, macroOriginKey,
+               isValid, isStatistic, invalidDate, mappingKey
+        from ETLOrigin where hotelkey = #{hotelKey}
+    </select>
+
+    <select id="getETLRoomType" resultType="com.example.demoserviceprovider.entity.ETLRoomType">
+        select sysid, LOWER(hotelkey) AS hotelKey, code, descriptOfChinese, descriptOfEnglish, descript, macroRmtypeKey,
+               isValid, isStatistic, invalidDate, mappingKey
+        from ETLRoomtype where hotelkey = #{hotelKey}
+    </select>
+
+    <select id="getETLRmRateCode" resultType="com.example.demoserviceprovider.entity.ETLRmRateCode">
+        select sysid, LOWER(hotelkey) AS hotelKey, code, descriptOfChinese, descriptOfEnglish, descript, sdate, edate,
+               originKey, marketSegKey, rateTypeKey, commission,
+               isValid, isStatistic, invalidDate, mappingKey
+        from ETLRmratecode where hotelkey = #{hotelKey}
+    </select>
+
+</mapper>
