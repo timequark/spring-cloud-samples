@@ -52,7 +52,7 @@ public class HelloController {
     @PostMapping("/login")
     public BaseResp<RespLogin> login(@RequestBody UserLogin userLogin) {
         BaseResp<RespLogin> resp = new BaseResp<>();
-        if (userLogin.usercode.equals("test") && userLogin.password.equals("12345") && userLogin.verification.equals("111111")) {
+        if (/*userLogin.usercode.equals("test") && userLogin.password.equals("12345") && */userLogin.verification.equals("111111")) {
             resp.code = Constants.ReturnCode.SUCCESS;
             resp.msg = Constants.ReturnMsg.SUCCESS;
 

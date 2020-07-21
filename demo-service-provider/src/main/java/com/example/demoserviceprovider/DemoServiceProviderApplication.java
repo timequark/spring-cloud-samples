@@ -10,6 +10,22 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 
+/**
+ * Doc
+ *
+ * [MyBatis]
+ * https://segmentfault.com/a/1190000019819558
+ * https://www.jianshu.com/p/541874714907
+ *
+ * @Mapper 直接写SQL
+ * https://www.cnblogs.com/tianshu/p/10165128.html
+ *
+ *
+ *
+ *
+ *
+ * */
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
